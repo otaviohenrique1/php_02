@@ -35,6 +35,7 @@ $contasCorrentes['123.256.789-12'] = depositar(
 
 titularComLetrasMaiusculas($contasCorrentes['123.256.789-12']);
 
+/* remove um item da lista */
 unset($contasCorrentes['123.256.789-12']);
 
 // if (500 > $contasCorrentes['123.456.789-10']['saldo']) {
@@ -49,10 +50,13 @@ unset($contasCorrentes['123.256.789-12']);
 //   $contasCorrentes['123.456.789-11']['saldo'] -= 500;
 // }
 
+echo "<ul>";
 foreach ($contasCorrentes as $cpf => $conta) {
-  ['titular' => $titular, 'saldo' => $saldo] = $conta;
+  // ['titular' => $titular, 'saldo' => $saldo] = $conta;
   // list('titular' => $titular, 'saldo' => $saldo) = $conta;
   // echo $cpf . ' ' . $conta['titular']  . ' ' .  $conta['saldo'] . PHP_EOL;
   // exibeMensagem("$cpf {$conta['titular']} {$conta['saldo']}");
-  exibeMensagem("$cpf $titular $saldo");
+  // exibeMensagem("$cpf $titular $saldo");
+  exibeConta($conta);
 }
+echo "</ul>";
