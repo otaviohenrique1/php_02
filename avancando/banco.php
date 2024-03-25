@@ -50,7 +50,7 @@ unset($contasCorrentes['123.256.789-12']);
 //   $contasCorrentes['123.456.789-11']['saldo'] -= 500;
 // }
 
-echo "<ul>";
+/* echo "<ul>";
 foreach ($contasCorrentes as $cpf => $conta) {
   // ['titular' => $titular, 'saldo' => $saldo] = $conta;
   // list('titular' => $titular, 'saldo' => $saldo) = $conta;
@@ -59,4 +59,25 @@ foreach ($contasCorrentes as $cpf => $conta) {
   // exibeMensagem("$cpf $titular $saldo");
   exibeConta($conta);
 }
-echo "</ul>";
+echo "</ul>"; */
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Contas correntes</h1>
+  <dl>
+    <?php foreach($contasCorrentes as $cpf => $conta) { ?>
+    <dt>
+      <h3><?= $conta['titular']; ?> - <?= $cpf; ?></h3>
+    </dt>
+    <dd>Saldo: <?= $conta['saldo'];?></dd>
+    <?php }?>
+  </dl>
+</body>
+</html>

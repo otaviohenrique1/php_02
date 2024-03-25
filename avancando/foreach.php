@@ -41,7 +41,7 @@ $contasCorrentes['123.258.852-12'] = [
   'saldo' => 2000
 ];
 
-echo $contasCorrentes[12345678911]['titular'];
+// echo $contasCorrentes[12345678911]['titular'];
 
 foreach ($contasCorrentes as $cpf => $conta) {
   echo $conta['titular'] . PHP_EOL;
