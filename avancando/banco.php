@@ -1,37 +1,7 @@
 <?php
-
-// function adiciona2($x)
-// {
-//   return $x + 2;
-// }
-// $resultado = adiciona2(2);
-// echo $resultado;
-
-function sacar(array $conta, float $valorASacar) : array
-{
-  if ($valorASacar > $conta['saldo']) {
-    exibeMensagem("Você não pode sacar este valor");
-  } else {
-    $conta['saldo'] -= $valorASacar;
-  }
-  return $conta;
-}
-
-function exibeMensagem(string $mensagem)
-{
-  echo $mensagem . PHP_EOL;
-}
-
-function depositar(array $conta, float $valorADepositar) : array
-{
-  if ($valorADepositar > 0) {
-    $conta['saldo'] += $valorADepositar;
-  } else {
-    exibeMensagem("Depósitos precisam ser positivos");
-  }
-  return $conta;
-}
-
+require_once 'funcoes.php';
+// require 'funcoes.php';
+// include 'funcoes.php';
 
 $contasCorrentes = [
   '123.456.789-10' => [
@@ -53,8 +23,8 @@ $contasCorrentes['123.456.789-10'] = sacar(
   200
 );
 
-$contasCorrentes['123.256.789-11'] = sacar(
-  $contasCorrentes['123.256.789-11'],
+$contasCorrentes['123.456.789-11'] = sacar(
+  $contasCorrentes['123.456.789-11'],
   500
 );
 
@@ -63,19 +33,21 @@ $contasCorrentes['123.256.789-12'] = depositar(
   900
 );
 
+titularComLetrasMaiusculas($contasCorrentes['123.256.789-12']);
+
 // if (500 > $contasCorrentes['123.456.789-10']['saldo']) {
-//   exibeMensagem("Você não pode sacar este valor");
+//   exibeMensagem('Você não pode sacar este valor');
 // } else {
 //   $contasCorrentes['123.456.789-10']['saldo'] -= 500;
 // }
 
 // if (500 > $contasCorrentes['123.456.789-11']['saldo']) {
-//   exibeMensagem("Você não pode sacar este valor");
+//   exibeMensagem('Você não pode sacar este valor');
 // } else {
 //   $contasCorrentes['123.456.789-11']['saldo'] -= 500;
 // }
 
 foreach ($contasCorrentes as $cpf => $conta) {
   // echo $cpf . ' ' . $conta['titular']  . ' ' .  $conta['saldo'] . PHP_EOL;
-  exibeMensagem($cpf . " " . $conta['titular'] . ' ' . $conta['saldo']);
+  exibeMensagem("$cpf {$conta['titular']} {$conta['saldo']}");
 }
