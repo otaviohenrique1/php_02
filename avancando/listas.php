@@ -10,3 +10,5 @@ $idadeList[] = 20;
 foreach ($idadeList as $idade) {
   echo $idade . PHP_EOL;
 }
+
+list($idadeVinicius, $idadeJoao, $idadeMaria) = $idadeList;
